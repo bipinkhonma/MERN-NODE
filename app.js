@@ -1,3 +1,5 @@
+const path = require('path')
+require('dotenv').config()
 const express = require('express')
 const app = express()
 const connectToDatabase = require('./Database')
@@ -16,10 +18,11 @@ app.get('/about', (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log('Node.js project has started')
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => {
+    console.log('Node.js project has started on port', PORT)
 })
 
 
 
-// mongodb+srv://bipinkhonma:<db_password>@cluster0.esdjrqj.mongodb.net/?appName=Cluster0
+// "mongodb://bipinkhonma:Bipin321@ac-hbhqb06-shard-00-00.esdjrqj.mongodb.net:27017,ac-hbhqb06-shard-00-01.esdjrqj.mongodb.net:27017,ac-hbhqb06-shard-00-02.esdjrqj.mongodb.net:27017/?ssl=true&replicaSet=atlas-pq9h24-shard-0&authSource=admin&retryWrites=true&w=majority"
