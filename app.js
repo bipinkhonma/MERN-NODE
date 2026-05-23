@@ -3,18 +3,20 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const connectToDatabase = require('./Database')
+app.use(express.json())
 
 connectToDatabase()
 
 app.get('/', (req, res) => {
-    res.json({
+    res.status(200).json({
         message: 'This is home page'
     })
 })
 
-app.get('/about', (req, res) => {
-    res.json({
-        message: 'This is about page'
+app.post('/blog', (req, res) => {
+    console.log(req.body)
+    res.status(200).json({
+        message: 'blog api hit sucessfully'
     })
 })
 
