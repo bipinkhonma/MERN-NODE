@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-new blogschema = new Schema({
+const blogschema = new Schema({
     title: {
         type: String,
         unique: true,
@@ -10,15 +10,12 @@ new blogschema = new Schema({
         type: String,
     },
     description: {
-        type: text,
+        type: String,
     },
     image: {
         type: String,           
-    }, 
-    age: {
-        type: Number,
-    },
+    }
 })
     
-   const Blog = mongoose.model('Blog', blogschema)
-   module.exports = Blog
+   const blog = mongoose.model('blog', blogschema)
+   module.exports = blog
